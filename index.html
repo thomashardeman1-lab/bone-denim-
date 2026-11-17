@@ -1,0 +1,697 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bone Denim Shop</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a scroll story on white. Logo first, then four short lines, then the rail where every pair hangs, then the pair up close, then about. Logo blue is the only color. */
+:root {
+  --paper: #ffffff;
+  --dot: #eceef2;
+  --ink: #1b1e26;
+  --mute: #8a8f99;
+  --faint: #aeb3bc;
+  --line: #e4e6ea;
+  --blue: #3a5ba0;
+  --blue-ink: #2c4680;
+  --sold: #b0503f;
+  --display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+section { scroll-margin-top: 60px; }
+html { background: var(--paper); scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--blue); }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+header.top :focus-visible { outline-color: #fff; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--mute); }
+
+/* header: wordmark appears once the big logo has scrolled away */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: var(--blue); color: #fff; }
+header.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-block: 14px; }
+header.top nav { display: flex; gap: 20px; }
+header.top nav a, .bag-btn { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; text-decoration: none; color: #fff; }
+header.top nav a:hover { color: rgba(255,255,255,.7); }
+.mark img { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); transition: opacity .35s, transform .35s; }
+body:not(.past-intro) .mark img { opacity: 0; transform: translateY(6px); }
+.bag-btn { justify-self: end; }
+.bag-btn b { color: #fff; font-weight: 600; }
+
+/* 1 · intro */
+.intro { min-height: calc(100svh - 58px); display: grid; place-items: center; position: relative; overflow: hidden; }
+.intro-bg { position: absolute; inset: 0; }
+/* old Atlanta street footage, shown in black and white so the blue logo is the only color */
+.intro-bg video { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.1) brightness(1.05); }
+.intro .veil { position: absolute; inset: 0; background: rgba(255,255,255, calc(.5 + var(--p, 0) * .5)); }
+.intro .logo { position: relative; z-index: 1; width: min(300px, 58vw); max-width: 100%; display: block; filter: drop-shadow(0 6px 24px rgba(255,255,255,.9)); transform: scale(calc(1 - var(--p, 0) * .25)) translateY(calc(var(--p, 0) * -40px)); opacity: calc(1 - var(--p, 0) * .9); will-change: transform; }
+.scroll-cue { z-index: 1; position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; }
+.scroll-cue i { width: 1px; height: 36px; background: linear-gradient(var(--blue), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* 2 · story */
+.story .wrap { padding-block: 40px 120px; display: grid; gap: 64px; max-width: 980px; }
+.story .one { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(44px, 8vw, 104px); line-height: .92; margin: 0; text-wrap: balance; }
+.lines { display: grid; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.lines li { font-size: clamp(24px, 3.4vw, 40px); line-height: 1.15; font-weight: 500; letter-spacing: -.01em; color: var(--faint); transition: color .6s ease; max-width: 26ch; }
+.lines li.lit { color: var(--ink); }
+.lines li:nth-child(even) { justify-self: end; text-align: right; }
+.lines li span { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; }
+
+/* 2b · lookbook: shot in black and white, only the denim is in color. Scrolling washes the color back in. */
+.look { border-top: 1px solid var(--line); }
+.look .wrap { padding-block: 64px 96px; display: grid; gap: 40px; }
+.look-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.look-head h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(32px, 4vw, 48px); line-height: 1; margin: 0; }
+.look-head p { margin: 0; color: var(--mute); max-width: 34ch; }
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.shot { margin: 0; display: grid; gap: 10px; }
+.shot:nth-child(2) { margin-top: 90px; }
+.shot:nth-child(3) { margin-top: 30px; }
+.frame { position: relative; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: #eee; perspective: 900px; }
+.frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: scale(calc(1.12 - var(--c, 0) * .12)); transition: transform .2s linear; }
+/* color layer: the denim is pushed a bit bluer and richer so the change reads clearly */
+.frame .col { filter: saturate(calc(1 + var(--c, 0) * .9)) contrast(calc(1 + var(--c, 0) * .08)); }
+/* black-and-white layer: washed out, wiped away from the bottom up as you scroll */
+.frame .bw { filter: contrast(.9) brightness(1.06); clip-path: inset(0 0 calc(var(--c, 0) * 100%) 0); }
+.frame .edge { position: absolute; left: 0; right: 0; height: 2px; background: var(--blue); bottom: calc(var(--c, 0) * 100%); opacity: min(1, calc((1 - var(--c, 0)) * 20)); box-shadow: 0 0 12px var(--blue); transition: opacity .3s; }
+.frame .tag { position: absolute; top: 12px; left: 12px; background: var(--paper); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: 3px 7px; color: var(--ink); }
+.frame .tag b { color: var(--blue); font-weight: 500; }
+.frame::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); pointer-events: none; }
+.shot figcaption { display: flex; justify-content: space-between; gap: 12px; }
+.shot figcaption b { font-weight: 500; font-family: var(--mono); font-size: 12px; color: var(--blue); }
+.shot:hover .frame .bw { clip-path: inset(0 0 100% 0); transition: clip-path .7s ease; }
+
+/* 3 · rail */
+.wardrobe { background-image: radial-gradient(var(--dot) 1.2px, transparent 1.3px); background-size: 22px 22px; border-top: 1px solid var(--line); }
+.wardrobe .wrap { padding-block: 40px 30px; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 30px; }
+.sec-head h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(32px, 4vw, 48px); line-height: 1; margin: 0; }
+.rack-scroll { overflow-x: auto; overflow-y: visible; padding-bottom: 30px; }
+.rack { position: relative; min-width: 600px; max-width: 1000px; margin: 0 auto; padding: 0 44px; perspective: 1100px; }
+.rail { position: absolute; left: 0; right: 0; top: 16px; height: 9px; border-radius: 6px; background: linear-gradient(#f5f6f8, #babec5 45%, #8e939b 55%, #e7e9ec); box-shadow: 0 2px 3px rgba(0,0,0,.1); z-index: 1; }
+.rail::before, .rail::after { content: ""; position: absolute; top: -9px; width: 11px; height: 27px; border-radius: 3px; background: linear-gradient(90deg, #9aa0a8, #eef0f2 50%, #9aa0a8); }
+.rail::before { left: 0; } .rail::after { right: 0; }
+.items { position: relative; display: flex; justify-content: space-around; gap: 16px; transform-style: preserve-3d; }
+
+/* each pair: pivots at the hook, turns toward the cursor, comes off the wall */
+.hang { --ry: 0deg; --rx: 0deg; --rz: 0deg; --z: 0px; --x: 0px; --sh: 0px;
+  position: relative; flex: 1 1 0; max-width: 200px; display: grid; justify-items: center;
+  transform-origin: 50% 14px; transform-style: preserve-3d;
+  transform: translateX(var(--x)) translateZ(var(--z)) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz));
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .4s ease; z-index: 2; }
+.hang .hanger { width: 70%; height: auto; display: block; position: relative; z-index: 2; }
+.hang .body { position: relative; width: 100%; margin-top: -4px; transform-style: preserve-3d; animation: sway 6s ease-in-out infinite; animation-delay: calc(var(--i) * -1.4s); transform-origin: 50% 0; }
+.hang img { width: 100%; height: 310px; object-fit: contain; object-position: top; display: block; position: relative; }
+.hang .shadow { position: absolute; inset: 6% 8% 0; background: radial-gradient(closest-side, rgba(20,25,40,.22), transparent); filter: blur(10px); transform: translate(var(--sh), 10px) translateZ(-40px); transition: transform .5s ease, opacity .5s; opacity: .6; }
+.hang .gloss { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: soft-light; opacity: 0; transition: opacity .4s; background: linear-gradient(calc(90deg + var(--ry) * 3), transparent 30%, rgba(255,255,255,.7) 50%, transparent 70%);
+  -webkit-mask: var(--m) center top / contain no-repeat; mask: var(--m) center top / contain no-repeat; }
+.items.hovering .hang:not(.on) { opacity: .5; }
+.hang.on { --z: 70px; z-index: 3; }
+.hang.on .shadow { opacity: 1; transform: translate(var(--sh), 26px) translateZ(-60px) scale(.96); }
+.hang.on .gloss { opacity: .55; }
+.hang.picked:not(.on) { --z: 24px; }
+.hang:not(.picked) img { filter: saturate(.85); }
+.hang .sold-tag { position: absolute; top: 60px; right: 10%; background: var(--paper); border: 1px solid var(--sold); color: var(--sold); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; padding: 1px 5px; transform: rotate(8deg) translateZ(2px); }
+@keyframes sway { 0%, 100% { transform: rotateY(-3deg) rotateZ(.4deg); } 50% { transform: rotateY(3deg) rotateZ(-.4deg); } }
+.caption { text-align: center; min-height: 20px; }
+
+/* 4 · the pair */
+.stage { border-top: 1px solid var(--line); }
+.stage .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 64px; align-items: center; padding-block: 56px 72px; max-width: 980px; }
+.photo { display: grid; place-items: center; perspective: 1200px; }
+.photo .card { transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateX(var(--tx, 0deg)) rotateY(var(--ty, 0deg)); }
+.photo img { width: auto; max-width: 100%; max-height: 560px; display: block; filter: drop-shadow(var(--dx, 0px) 22px 22px rgba(20,25,40,.2)); }
+.photo .card.enter { animation: enter .8s cubic-bezier(.2,.8,.2,1); }
+@keyframes enter { from { transform: translateZ(-260px) rotateY(-55deg); } }
+.info { display: grid; gap: 22px; }
+.info h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(40px, 5vw, 56px); line-height: .95; margin: 6px 0 0; text-wrap: balance; }
+.sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sizes div { padding-block: 12px; display: grid; gap: 2px; }
+.sizes div + div { border-left: 1px solid var(--line); padding-left: 14px; }
+.sizes strong { font-family: var(--mono); font-size: 18px; font-weight: 500; font-variant-numeric: tabular-nums; }
+details { border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary span:last-child { font-size: 18px; color: var(--blue); transition: transform .2s; }
+details[open] summary span:last-child { transform: rotate(45deg); }
+.custom { display: grid; gap: 14px; padding-top: 14px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; inset: 0; }
+.opt span { display: block; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: 13px; }
+.opt span small { color: var(--mute); margin-left: 4px; font-family: var(--mono); font-size: 11px; }
+.opt input:checked + span { border-color: var(--blue); color: var(--blue); background: #f1f4fa; }
+.opt input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 2px; }
+.text-in { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit; width: 100%; color: var(--ink); background: var(--paper); }
+.text-in.caps { text-transform: uppercase; letter-spacing: .2em; font-family: var(--mono); }
+.buy { display: grid; gap: 8px; }
+.pill { display: flex; justify-content: space-between; align-items: center; width: 100%; background: var(--blue); color: #fff; border-radius: 999px; padding: 15px 24px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; }
+.pill:hover { background: var(--blue-ink); }
+.pill[disabled] { background: var(--line); color: var(--mute); cursor: not-allowed; }
+.fine { font-family: var(--mono); font-size: 11px; color: var(--mute); margin: 0; text-align: center; }
+
+/* 5 · about */
+.about { background: var(--blue); color: #fff; }
+.about .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 64px; align-items: center; padding-block: 80px; max-width: 980px; }
+.about img { width: 100%; max-width: 230px; display: block; filter: brightness(0) invert(1); }
+.about h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(34px, 4.5vw, 54px); line-height: .95; margin: 0 0 18px; }
+.about p { margin: 0 0 14px; max-width: 54ch; color: rgba(255,255,255,.85); font-size: 16px; }
+.about .label { color: rgba(255,255,255,.7); }
+
+/* bag */
+.drawer { position: fixed; inset: 0; z-index: 20; display: grid; grid-template-columns: 1fr minmax(0, 380px); }
+.drawer .shade { background: rgba(20,24,34,.3); }
+.drawer aside { background: var(--paper); display: grid; grid-template-rows: auto 1fr auto; gap: 16px; overflow: auto; padding: calc(env(safe-area-inset-top, 0px) + 22px) max(22px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 22px) 22px; }
+.drawer h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: 30px; margin: 0; }
+.line-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px; align-items: start; border-bottom: 1px solid var(--line); padding-block: 14px; }
+.line-item img { width: 56px; height: 72px; object-fit: contain; }
+.line-item ul { margin: 4px 0 0; padding-left: 16px; color: var(--mute); font-size: 13px; }
+.line-item ul.adds { padding: 0; list-style: none; display: grid; gap: 2px; }
+.line-item ul.adds li { display: flex; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: 11px; }
+.spec { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+.spec td { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.spec td:last-child { text-align: right; }
+.note { margin: 0; color: var(--mute); font-size: 14px; }
+
+/* waitlist */
+.wait { border-top: 1px solid var(--line); }
+.wait .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 64px; max-width: 980px; }
+.wait h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(32px, 4vw, 48px); line-height: .95; margin: 0 0 8px; }
+.wait p { margin: 0; color: var(--mute); }
+.wait form { display: flex; gap: 8px; flex-wrap: wrap; }
+.wait input { flex: 1 1 220px; min-width: 0; }
+.wait button { background: var(--blue); color: #fff; border-radius: 999px; padding: 12px 22px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+.wait .fine { text-align: left; margin-top: 10px; }
+
+/* faq */
+.faq { border-top: 1px solid var(--line); }
+.faq .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; padding-block: 64px; max-width: 980px; }
+.faq h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(32px, 4vw, 48px); line-height: 1; margin: 0; }
+.faq details { padding-block: 14px 14px; }
+.faq summary { font-weight: 500; }
+.faq details p { margin: 10px 0 0; color: var(--mute); max-width: 60ch; }
+.contact { margin-top: 16px; display: grid; gap: 4px; }
+.contact code { font-family: var(--mono); font-size: 13px; user-select: all; }
+
+footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+footer nav a, footer nav button { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--mute); text-decoration: none; }
+footer nav a:hover, footer nav button:hover { color: var(--blue); }
+
+/* owner view */
+.owner { position: fixed; inset: 0; z-index: 30; background: #f5f6f8; overflow: auto; }
+.owner .wrap { padding-block: calc(env(safe-area-inset-top, 0px) + 28px) 56px; display: grid; gap: 24px; }
+.owner-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; flex-wrap: wrap; }
+.owner-head h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; color: var(--blue); font-size: clamp(32px, 4vw, 48px); line-height: 1; margin: 6px 0 8px; }
+.owner-head p { margin: 0; color: var(--mute); max-width: 60ch; }
+.board-scroll { overflow-x: auto; }
+.board { display: grid; grid-template-columns: repeat(4, minmax(220px, 1fr)); gap: 14px; }
+.col { display: grid; gap: 10px; align-content: start; }
+.col h3 { margin: 0; display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.ticket { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 8px; font-size: 13px; }
+.ticket.mine { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+.ticket .t-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--mute); }
+.ticket .t-piece { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 10px; align-items: center; }
+.ticket .t-piece img { width: 36px; height: 46px; object-fit: contain; }
+.ticket ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.ticket li label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.ticket li input { accent-color: var(--blue); }
+.ticket li input:checked + span { text-decoration: line-through; color: var(--mute); }
+.ticket .move { justify-self: start; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--blue); }
+.close-owner { border: 1px solid var(--ink); border-radius: 999px; padding: 9px 16px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+.x { color: var(--mute); font-family: var(--mono); font-size: 11px; text-decoration: underline; }
+.total { display: flex; justify-content: space-between; align-items: baseline; }
+.total strong { font-family: var(--mono); font-size: 18px; font-weight: 500; }
+
+footer .wrap { display: grid; justify-items: center; gap: 28px; padding-block: 64px 28px; }
+.foot-logo { width: min(160px, 45vw); height: auto; display: block; margin-inline: auto; }
+footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; width: 100%; border-top: 1px solid var(--line); padding-top: 18px; }
+
+@media (max-width: 760px) {
+  .wait .wrap, .faq .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 48px; }
+  header.top nav { display: none; }
+  .shots { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .shot:nth-child(n) { margin-top: 0; }
+  .stage .wrap, .about .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 40px 56px; }
+  .photo img { max-height: 380px; }
+  .hang img { height: 230px; }
+  .lines li:nth-child(even) { justify-self: start; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Main"><a href="#look">Look</a><a href="#shop">Shop</a><a href="#about">About</a></nav>
+    <a class="mark" href="#top" aria-label="Bone Denim, back to top"><img src="assets/bone-wordmark-blue.png" alt="Bone"></a>
+    <button class="bag-btn" id="bagBtn" type="button">Bag (<b id="bagCount">0</b>)</button>
+  </div>
+</header>
+
+<main>
+  <section class="intro" id="top">
+    <div class="intro-bg" aria-hidden="true"><video id="introVid" src="assets/video/atlanta.mp4" poster="assets/video/atlanta-poster.jpg" autoplay muted loop playsinline preload="auto"></video></div>
+    <div class="veil"></div>
+    <img class="logo" id="bigLogo" src="assets/logo-stack-blue.png" alt="Bone Denim Shop">
+    <div class="scroll-cue"><span class="label">Scroll</span><i></i></div>
+  </section>
+
+  <section class="story">
+    <div class="wrap">
+      <h1 class="one">One-of-one denim, reworked by hand in Atlanta.</h1>
+      <ol class="lines">
+        <li><span>Found</span>Every pair starts as someone else's jeans.</li>
+        <li><span>Reworked</span>We take them apart, wash them and build them back up.</li>
+        <li><span>Yours</span>You pick the hem and the initials.</li>
+        <li><span>Once</span>When it's sold, it's gone.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="look" id="look">
+    <div class="wrap">
+      <div class="look-head">
+        <h2>Worn</h2>
+        <p>Everything in black and white. Scroll, and only the denim gets its color back.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot"><div class="frame"><img class="col" src="assets/look/look-01.jpg" alt="Model in wide ripped jeans against a sunlit wall"><img class="bw" src="assets/look/look-01-bw.jpg" alt=""><span class="edge"></span><span class="tag">B/W → <b>Denim</b></span></div><figcaption><span class="label">Look 01</span><b>Wide · ripped knee</b></figcaption></figure>
+        <figure class="shot"><div class="frame"><img class="col" src="assets/look/look-02.jpg" alt="Model in light straight jeans and a denim jacket"><img class="bw" src="assets/look/look-02-bw.jpg" alt=""><span class="edge"></span><span class="tag">B/W → <b>Denim</b></span></div><figcaption><span class="label">Look 02</span><b>Straight · light wash</b></figcaption></figure>
+        <figure class="shot"><div class="frame"><img class="col" src="assets/look/look-03.jpg" alt="Model in dark straight jeans and a knit cardigan"><img class="bw" src="assets/look/look-03-bw.jpg" alt=""><span class="edge"></span><span class="tag">B/W → <b>Denim</b></span></div><figcaption><span class="label">Look 03</span><b>Relaxed · dark vintage</b></figcaption></figure>
+      </div>
+      <a class="label" href="#shop" style="justify-self:center;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:4px">Shop the drop ↓</a>
+    </div>
+  </section>
+
+  <section class="wardrobe" id="shop">
+    <div class="wrap">
+      <div class="sec-head"><h2>Drop 01</h2><span class="label">Pick a pair off the rail</span></div>
+      <div class="rack-scroll">
+        <div class="rack" id="rack">
+          <div class="rail"></div>
+          <div class="items" id="items"></div>
+        </div>
+      </div>
+      <p class="caption label" id="caption" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="stage" id="piece">
+    <div class="wrap">
+      <div class="photo" id="photo"><div class="card" id="card"><img id="pImg" alt=""></div></div>
+      <div class="info">
+        <div>
+          <span class="label" id="pNo"></span>
+          <h3 id="pName"></h3>
+        </div>
+        <div class="sizes">
+          <div><span class="label">Waist</span><strong id="sW"></strong></div>
+          <div><span class="label">Inseam</span><strong id="sL"></strong></div>
+          <div><span class="label">Fit</span><strong id="sF" style="font-size:15px"></strong></div>
+        </div>
+        <details class="acc" id="detailBox">
+          <summary><span class="label" style="color:var(--ink)">Details &amp; measurements</span><span aria-hidden="true">+</span></summary>
+          <div class="custom">
+            <table class="spec"><tbody id="spec"></tbody></table>
+            <p class="note" id="pNotes"></p>
+            <p class="fine" style="text-align:left">Measured flat in inches. Compare with a pair you own.</p>
+          </div>
+        </details>
+        <form id="custom" class="buy">
+          <details class="acc" id="more">
+            <summary><span class="label" style="color:var(--ink)">Make it yours</span><span aria-hidden="true">+</span></summary>
+            <div class="custom">
+              <div class="opts" role="radiogroup" aria-label="Hem">
+                <label class="opt"><input type="radio" name="hem" id="hem-0" value="0" checked><span>Original hem</span></label>
+                <label class="opt"><input type="radio" name="hem" id="hem-1" value="1"><span>Raw cut<small>+$10</small></span></label>
+                <label class="opt"><input type="radio" name="hem" id="hem-2" value="2"><span>Shorten<small>+$15</small></span></label>
+              </div>
+              <input class="text-in" id="inseam" inputmode="decimal" placeholder='Your inseam, e.g. 30"' aria-label="Your inseam in inches" hidden>
+              <div class="opts" role="radiogroup" aria-label="Distressing">
+                <label class="opt"><input type="radio" name="wear" id="wear-0" value="0" checked><span>No distressing</span></label>
+                <label class="opt"><input type="radio" name="wear" id="wear-1" value="1"><span>Light<small>+$25</small></span></label>
+                <label class="opt"><input type="radio" name="wear" id="wear-2" value="2"><span>Heavy<small>+$45</small></span></label>
+              </div>
+              <div class="opts" role="radiogroup" aria-label="Back patch">
+                <label class="opt"><input type="radio" name="patch" id="patch-0" value="0" checked><span>No patch</span></label>
+                <label class="opt"><input type="radio" name="patch" id="patch-1" value="1"><span>Bone leather patch<small>+$20</small></span></label>
+              </div>
+              <input class="text-in caps" id="initials" maxlength="3" placeholder="Initials +$15" aria-label="Initials embroidered inside the waistband">
+              <p class="fine" style="text-align:left">Made to order, ships in 10–14 days. Customized pairs can't be returned.</p>
+            </div>
+          </details>
+          <button class="pill" id="addBtn" type="submit"><span id="addTxt">Add to bag</span><span id="pTotal"></span></button>
+          <p class="fine" id="addNote">1 in stock</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <img src="assets/logo-stack-blue.png" alt="">
+      <div>
+        <span class="label">About · Atlanta, GA</span>
+        <h2>Denim with a past.</h2>
+        <p>Bone Denim started with a pile of old jeans and a sewing machine. Each pair is sourced, taken apart and reworked by hand, so no two come out the same.</p>
+        <p>We measure every pair and list it on its own. Pick yours, choose how it's finished, and we make it in 10–14 days.</p>
+      </div>
+    </div>
+  </section>
+  <section class="wait" id="waitlist">
+    <div class="wrap">
+      <div>
+        <h2>Drop 02</h2>
+        <p>Waitlist gets 24 hours early access before the public drop.</p>
+      </div>
+      <div>
+        <form id="wlForm">
+          <input class="text-in" id="wlEmail" type="email" required placeholder="you@email.com" aria-label="Email">
+          <button type="submit">Join the waitlist</button>
+        </form>
+        <p class="fine" id="wlNote">No spam. One email per drop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div>
+        <h2>Questions</h2>
+        <div class="contact"><span class="label">Contact</span><code>hello@bonedenim.com</code><span class="fine" style="text-align:left">Example address</span></div>
+      </div>
+      <div>
+        <details id="faq-fit"><summary><span>How do I know if it fits?</span><span aria-hidden="true">+</span></summary><p>Lay a pair you love flat and measure waist, rise, inseam, thigh and leg opening. Compare with the measurements on each pair. Every pair is listed with its own numbers.</p></details>
+        <details id="faq-custom"><summary><span>How does customization work?</span><span aria-hidden="true">+</span></summary><p>Choose your hem, distressing, patch and initials before adding the pair to your bag. We finish it by hand after you order, which takes 10–14 days.</p></details>
+        <details id="faq-shipping"><summary><span>Shipping</span><span aria-hidden="true">+</span></summary><p>Ships from Atlanta, GA. US orders arrive in 3–5 business days after the pair is finished. Example policy, to confirm with Bone Denim.</p></details>
+        <details id="faq-returns"><summary><span>Returns</span><span aria-hidden="true">+</span></summary><p>Pairs without customization can be returned within 14 days. Customized pairs are made for you and are final sale. Example policy, to confirm with Bone Denim.</p></details>
+        <details id="faq-restock"><summary><span>Will a sold pair come back?</span><span aria-hidden="true">+</span></summary><p>No. Every pair is one of one. Join the waitlist to hear about the next drop first.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="assets/bone-icon-blue.png" alt="Bone Denim">
+    <nav aria-label="Footer">
+      <a href="#faq-shipping">Shipping</a><a href="#faq-returns">Returns</a><a href="#faq">Contact</a><a href="#waitlist">Waitlist</a>
+      <button type="button" id="ownerBtn">Owner view</button>
+    </nav>
+    <div class="row">
+      <span class="label">Bone Denim Shop · Atlanta, GA</span>
+      <span class="label">Prototype · placeholder photos and prices</span>
+    </div>
+  </div>
+</footer>
+
+<section class="owner" id="owner" hidden aria-label="Owner view">
+  <div class="wrap">
+    <div class="owner-head">
+      <div>
+        <span class="label">Owner view · not visible to customers</span>
+        <h2>Orders to make</h2>
+        <p>Every choice a customer makes lands on the order as a checklist. Tick tasks off and move the order along. In Shopify this lives in the admin; orders you check out in this prototype show up here in blue.</p>
+      </div>
+      <button class="close-owner" type="button" id="closeOwner">Back to shop</button>
+    </div>
+    <div class="board-scroll"><div class="board" id="board"></div></div>
+  </div>
+</section>
+
+<div class="drawer" id="drawer" hidden>
+  <button class="shade" id="shade" type="button" aria-label="Close bag"></button>
+  <aside aria-label="Your bag">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2>Bag</h2>
+      <button class="x" id="closeBag" type="button">Close</button>
+    </div>
+    <div id="bagLines"></div>
+    <div style="display:grid;gap:14px">
+      <div class="total"><span class="label">Subtotal</span><strong id="bagTotal">$0</strong></div>
+      <button class="pill" id="checkout" type="button"><span>Checkout</span><span>→</span></button>
+    </div>
+  </aside>
+</div>
+
+<script>
+// Example pieces. Measurements in inches. Photos are placeholders until the December shoot.
+const PIECES = [
+  { id: "01", name: "Ash Wide", fit: "Wide", w: 30, l: 31, rise: 11.5, thigh: 26, leg: 21, tag: "30", wash: "Light vintage", price: 240, img: "assets/jeans/jeans-01.png", notes: "Soft faded knees, original button fly." },
+  { id: "02", name: "Marrow Baggy", fit: "Baggy", w: 32, l: 30, rise: 12.5, thigh: 28, leg: 22, tag: "32", wash: "Tinted mid blue", price: 260, img: "assets/jeans/jeans-02.png", sold: true, notes: "Yellow tint over a mid wash, worn-in seat." },
+  { id: "03", name: "Flame Straight", fit: "Straight", w: 29, l: 32, rise: 11, thigh: 23, leg: 18, tag: "29", wash: "Mid vintage", price: 320, img: "assets/jeans/jeans-03.png", notes: "Hand-cut flame appliqué with chain stitch, raw hem." },
+  { id: "04", name: "Raw Barrel", fit: "Barrel", w: 31, l: 30, rise: 12, thigh: 27, leg: 19, tag: "31", wash: "Raw indigo", price: 280, img: "assets/jeans/jeans-04.png", notes: "Unwashed, fades to the wearer. Orange contrast stitching." }
+];
+const HEM = [["Original hem", 0], ["Raw cut", 10], ["Shorten", 15]];
+const WEAR = [["No distressing", 0], ["Light distressing", 25], ["Heavy distressing", 45]];
+const PATCH = [["No patch", 0], ["Bone leather patch", 20]];
+const INITIALS = 15;
+const money = n => "$" + n.toLocaleString("en-US");
+const $ = id => document.getElementById(id);
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hanger = `<svg class="hanger" viewBox="0 0 120 40" aria-hidden="true">
+  <path d="M60 2 q8 0 8 8 q0 7 -8 9 v8" stroke="#8f949c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <rect x="8" y="26" width="104" height="5" rx="2.5" fill="#2b2b2e"/>
+  <rect x="16" y="29" width="8" height="11" rx="1.5" fill="#55575c"/>
+  <rect x="96" y="29" width="8" height="11" rx="1.5" fill="#55575c"/></svg>`;
+
+let current = "01";
+let bag = [];
+try { bag = JSON.parse(localStorage.getItem("bd-bag3") || "[]"); } catch (e) { bag = []; }
+const saveBag = () => { try { localStorage.setItem("bd-bag3", JSON.stringify(bag)); } catch (e) {} };
+
+/* ---------- rail ---------- */
+function renderRack() {
+  $("items").innerHTML = PIECES.map((p, i) => `
+    <button class="hang${p.id === current ? " picked" : ""}" type="button" data-id="${p.id}" style="--i:${i};--m:url(${p.img})" aria-label="${p.name}${p.sold ? ", sold" : ""}" aria-pressed="${p.id === current}">
+      ${hanger}
+      <div class="body"><div class="shadow"></div><img src="${p.img}" alt=""><div class="gloss"></div></div>
+      ${p.sold ? '<span class="sold-tag">SOLD</span>' : ""}
+    </button>`).join("");
+}
+
+function caption(p) { $("caption").textContent = p ? `${p.id} — ${p.name} · W${p.w} L${p.l} · ${p.sold ? "Sold" : money(p.price)}` : ""; }
+
+// Hover: the pair turns toward the cursor and comes off the wall; neighbours slide aside on the rail.
+function tilt(e) {
+  if (still) return;
+  const h = e.target.closest(".hang");
+  const all = [...$("items").children];
+  if (!h) return;
+  const r = h.getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width - .5;
+  const py = (e.clientY - r.top) / r.height - .5;
+  const idx = all.indexOf(h);
+  all.forEach((el, i) => {
+    el.classList.toggle("on", el === h);
+    if (el === h) {
+      el.style.setProperty("--ry", (px * 38).toFixed(1) + "deg");
+      el.style.setProperty("--rx", (-py * 10).toFixed(1) + "deg");
+      el.style.setProperty("--rz", (-px * 3).toFixed(1) + "deg");
+      el.style.setProperty("--sh", (-px * 40).toFixed(0) + "px");
+      el.style.setProperty("--x", "0px");
+    } else {
+      const d = i - idx;
+      el.style.setProperty("--x", (Math.sign(d) * (Math.abs(d) === 1 ? 26 : 12)) + "px");
+      el.style.setProperty("--ry", (Math.sign(d) * -14) + "deg");
+      el.style.setProperty("--rx", "0deg"); el.style.setProperty("--rz", "0deg"); el.style.setProperty("--sh", "0px");
+    }
+  });
+  $("items").classList.add("hovering");
+  caption(PIECES.find(p => p.id === h.dataset.id));
+}
+function untilt() {
+  [...$("items").children].forEach(el => { el.classList.remove("on"); ["--ry", "--rx", "--rz", "--x", "--sh"].forEach(v => el.style.removeProperty(v)); });
+  $("items").classList.remove("hovering");
+  caption(PIECES.find(p => p.id === current));
+}
+$("items").addEventListener("pointermove", tilt);
+$("items").addEventListener("pointerleave", untilt);
+$("items").addEventListener("click", e => {
+  const h = e.target.closest(".hang"); if (!h) return;
+  current = h.dataset.id; renderRack(); renderPiece(true);
+  $("piece").scrollIntoView({ behavior: still ? "auto" : "smooth" });
+});
+
+/* ---------- the pair ---------- */
+function form() {
+  const hem = +document.querySelector("input[name=hem]:checked").value;
+  const initials = $("initials").value.replace(/[^a-z]/gi, "").toUpperCase();
+  $("initials").value = initials;
+  const wear = +document.querySelector("input[name=wear]:checked").value;
+  const patch = +document.querySelector("input[name=patch]:checked").value;
+  return { hem, wear, patch, initials, inseam: $("inseam").value.trim() };
+}
+const total = (p, f) => p.price + HEM[f.hem][1] + WEAR[f.wear][1] + PATCH[f.patch][1] + (f.initials ? INITIALS : 0);
+// In Shopify each paid choice becomes a hidden add-on product next to the pair, and the details go on the order.
+function addOns(f) {
+  const out = [];
+  if (f.hem === 1) out.push(["Raw cut hem", 10]);
+  if (f.hem === 2) out.push([`Shorten to ${f.inseam}" inseam`, 15]);
+  if (f.wear) out.push(WEAR[f.wear]);
+  if (f.patch) out.push(PATCH[f.patch]);
+  if (f.initials) out.push([`Initials: ${f.initials}`, INITIALS]);
+  return out;
+}
+
+function update() {
+  const p = PIECES.find(x => x.id === current), f = form();
+  $("inseam").hidden = f.hem !== 2;
+  const inBag = bag.some(b => b.id === p.id);
+  const badInseam = f.hem === 2 && !(+f.inseam >= 20 && +f.inseam <= 40);
+  $("addBtn").disabled = p.sold || inBag || badInseam;
+  $("addTxt").textContent = p.sold ? "Sold" : inBag ? "In your bag" : "Add to bag";
+  $("pTotal").textContent = p.sold ? "" : money(total(p, f));
+  $("addNote").textContent = p.sold ? "This pair found a home" : badInseam ? "Enter your inseam (20–40 inches)" : "1 in stock";
+}
+
+function renderPiece(animate) {
+  const p = PIECES.find(x => x.id === current);
+  $("pImg").src = p.img; $("pImg").alt = p.name;
+  $("pNo").textContent = `${p.id} / ${String(PIECES.length).padStart(2, "0")}`;
+  $("pName").textContent = p.name;
+  $("sW").textContent = p.w + '"'; $("sL").textContent = p.l + '"'; $("sF").textContent = p.fit;
+  $("spec").innerHTML = [["Tag size", p.tag], ["Waist", p.w + '"'], ["Front rise", p.rise + '"'], ["Inseam", p.l + '"'], ["Thigh", p.thigh + '"'], ["Leg opening", p.leg + '"'], ["Wash", p.wash]]
+    .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+  $("pNotes").textContent = p.notes;
+  $("custom").reset(); $("more").open = false; $("more").hidden = !!p.sold;
+  if (animate && !still) { const c = $("card"); c.classList.remove("enter"); void c.offsetWidth; c.classList.add("enter"); }
+  update(); caption(p);
+}
+
+// Big photo turns with the cursor, like holding the pair up.
+$("photo").addEventListener("pointermove", e => {
+  if (still) return;
+  const r = $("photo").getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+  $("card").style.setProperty("--ty", (px * 22).toFixed(1) + "deg");
+  $("card").style.setProperty("--tx", (-py * 10).toFixed(1) + "deg");
+  $("pImg").style.setProperty("--dx", (-px * 30).toFixed(0) + "px");
+});
+$("photo").addEventListener("pointerleave", () => { ["--ty", "--tx"].forEach(v => $("card").style.removeProperty(v)); $("pImg").style.removeProperty("--dx"); });
+
+/* ---------- bag ---------- */
+function renderBag() {
+  $("bagCount").textContent = bag.length;
+  $("bagLines").innerHTML = bag.length ? bag.map((b, i) => `<div class="line-item">
+      <img src="${b.img}" alt="">
+      <div><strong>${b.name}</strong> <span class="fine">${money(b.price || b.total)}</span>
+        <ul class="adds">${(b.addons || []).map(([n, a]) => `<li><span>+ ${n}</span><span>${money(a)}</span></li>`).join("") || "<li><span>No customization</span></li>"}</ul>
+        <button class="x" type="button" data-remove="${i}">Remove</button></div>
+      <span>${money(b.total)}</span>
+    </div>`).join("") : `<p class="fine" style="text-align:left">Your bag is empty.</p>`;
+  $("bagTotal").textContent = money(bag.reduce((s, b) => s + b.total, 0));
+  $("checkout").disabled = !bag.length;
+}
+const openBag = o => { $("drawer").hidden = !o; if (o) $("closeBag").focus(); };
+
+$("custom").addEventListener("input", update);
+$("custom").addEventListener("submit", e => {
+  e.preventDefault(); update();
+  if ($("addBtn").disabled) return;
+  const p = PIECES.find(x => x.id === current), f = form();
+  bag.push({ id: p.id, name: p.name, img: p.img, price: p.price, total: total(p, f), addons: addOns(f) });
+  saveBag(); renderBag(); update(); openBag(true);
+});
+$("bagBtn").addEventListener("click", () => openBag(true));
+$("closeBag").addEventListener("click", () => openBag(false));
+$("shade").addEventListener("click", () => openBag(false));
+document.addEventListener("keydown", e => { if (e.key === "Escape") openBag(false); });
+$("bagLines").addEventListener("click", e => {
+  const i = e.target.dataset.remove; if (i === undefined) return;
+  bag.splice(+i, 1); saveBag(); renderBag(); update();
+});
+$("checkout").addEventListener("click", () => {
+  bag.forEach(b => tickets.push({ order: "#" + nextOrder++, piece: b.id, cust: "You", stage: 0, mine: true,
+    tasks: (b.addons || []).map(a => a[0]).concat(["Pack and ship"]) }));
+  bag = []; saveBag(); renderBag(); update(); openBag(false);
+  openOwner(true);
+});
+
+/* ---------- owner view ---------- */
+const STAGES = ["To do", "In production", "Ready", "Shipped"];
+const tickets = [
+  { order: "#1042", piece: "02", cust: "J. Morgan", stage: 1, tasks: ['Shorten to 30" inseam', "Heavy distressing", "Initials: JM", "Pack and ship"] },
+  { order: "#1043", piece: "03", cust: "A. Reyes", stage: 0, tasks: ["Raw cut hem", "Bone leather patch", "Pack and ship"] },
+  { order: "#1040", piece: "01", cust: "T. Kim", stage: 2, tasks: ["Initials: TK", "Pack and ship"] }
+];
+let nextOrder = 1044;
+function renderBoard() {
+  $("board").innerHTML = STAGES.map((st, si) => {
+    const ts = tickets.filter(t => t.stage === si);
+    return `<div class="col"><h3 class="label"><span>${st}</span><span>${ts.length}</span></h3>
+      ${ts.map(t => {
+        const p = PIECES.find(x => x.id === t.piece);
+        return `<div class="ticket${t.mine ? " mine" : ""}">
+          <div class="t-head"><span>${t.order}</span><span>${t.cust}</span></div>
+          <div class="t-piece"><img src="${p.img}" alt=""><div><strong>${p.name}</strong><div class="label">W${p.w} L${p.l} · ${p.wash}</div></div></div>
+          <ul>${t.tasks.map((x, k) => `<li><label><input type="checkbox" id="t${t.order.slice(1)}-${k}"><span>${x}</span></label></li>`).join("")}</ul>
+          ${si < 3 ? `<button class="move" type="button" data-move="${t.order}">Move to ${STAGES[si + 1]} →</button>` : ""}
+        </div>`;
+      }).join("")}</div>`;
+  }).join("");
+}
+function openOwner(o) { $("owner").hidden = !o; document.body.style.overflow = o ? "hidden" : ""; if (o) { renderBoard(); $("closeOwner").focus(); } }
+$("ownerBtn").addEventListener("click", () => openOwner(true));
+$("closeOwner").addEventListener("click", () => openOwner(false));
+$("board").addEventListener("click", e => {
+  const o = e.target.dataset.move; if (!o) return;
+  const t = tickets.find(x => x.order === o); if (t) t.stage = Math.min(3, t.stage + 1);
+  renderBoard();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("owner").hidden) openOwner(false); });
+
+/* ---------- waitlist + faq links ---------- */
+$("wlForm").addEventListener("submit", e => {
+  e.preventDefault();
+  $("wlNote").textContent = "You're on the list. (Prototype: nothing was sent.)";
+  e.target.reset();
+});
+document.querySelectorAll('footer a[href^="#faq-"]').forEach(a => a.addEventListener("click", () => { const d = document.querySelector(a.getAttribute("href")); if (d) d.open = true; }));
+
+/* ---------- scroll story ---------- */
+function onScroll() {
+  const h = $("top").offsetHeight || 1;
+  const p = Math.min(1, Math.max(0, scrollY / (h * .8)));
+  $("top").style.setProperty("--p", p.toFixed(3));
+  document.body.classList.toggle("past-intro", scrollY > h * .55);
+}
+addEventListener("scroll", onScroll, { passive: true });
+
+// Story lines turn from faint to ink as they reach the middle of the screen. They are readable before that.
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(en => en.isIntersecting && en.target.classList.add("lit")), { rootMargin: "0px 0px -35% 0px" }) : null;
+document.querySelectorAll(".lines li").forEach(li => io ? io.observe(li) : li.classList.add("lit"));
+
+// Lookbook: each photo starts black and white; as it rises to the middle of the screen the denim's color comes back.
+const frames = [...document.querySelectorAll(".frame")];
+function colorIn() {
+  if (still) { frames.forEach(f => f.style.setProperty("--c", 1)); return; }
+  const vh = innerHeight;
+  frames.forEach(f => {
+    const r = f.getBoundingClientRect();
+    const mid = r.top + r.height / 2;
+    const c = Math.min(1, Math.max(0, (vh * .9 - mid) / (vh * .35)));
+    f.style.setProperty("--c", c.toFixed(3));
+  });
+}
+addEventListener("scroll", colorIn, { passive: true });
+addEventListener("resize", colorIn);
+
+// Intro video: pause it for reduced motion, and when it has scrolled away.
+const vid = $("introVid");
+if (still) { vid.removeAttribute("autoplay"); vid.pause(); }
+else if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => { e.isIntersecting ? vid.play().catch(() => {}) : vid.pause(); }).observe($("top"));
+
+
+renderRack(); renderPiece(false); renderBag(); onScroll(); colorIn();
+</script>
+
+</body></html>
